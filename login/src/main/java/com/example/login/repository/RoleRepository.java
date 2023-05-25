@@ -11,5 +11,5 @@ that extends the JPA repository interface. The JPA repository provides several
 methods for performing CRUD operations on a JPA entity, and it takes two type
 parameters: entity type and entity's primary key
 * */
-    role findBtName(String name);
+    role findByName(String name);
 }

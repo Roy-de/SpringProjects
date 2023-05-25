@@ -12,7 +12,7 @@ public class studentcontroller {
     private studentservice studentservice;
 
     public studentcontroller(studentservice studentservice){
-        super();
+        //super();
         this.studentservice = studentservice;
     }
     //handler method to handle list student request and return model and view

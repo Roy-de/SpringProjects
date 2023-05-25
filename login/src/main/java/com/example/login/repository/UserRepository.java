@@ -11,5 +11,5 @@ public interface UserRepository extends JpaRepository<user, Long> {
     methods for performing CRUD operations on a JPA entity, and it takes two type
     parameters: entity type and entity's primary key
     * */
-    user findByName(String email);
+    user findByEmail(String email) ;
 }
