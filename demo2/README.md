@@ -1,0 +1,1 @@
+This is Spring_ injecting objects by constructor injection
