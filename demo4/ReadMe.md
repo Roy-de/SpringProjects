@@ -1,0 +1,1 @@
+This example is a static factory method - returning instance of own class
