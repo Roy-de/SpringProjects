@@ -1,13 +1,15 @@
 package com.example.demo;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.config.Scope;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
 public class Demo6Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Demo6Application.class, args);
+		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext();
+		Scope scope = new CustomThreadScope();
+		context.getBeanFactory().registerScope("Threadscope" ,scope);
 	}
 
 }
