@@ -10,7 +10,11 @@ public class Demo5Application {
 
         ApplicationContext context =  new ClassPathXmlApplicationContext("config.xml");
         Student student = (Student) context.getBean("student");
-        System.out.println(student);
+        String [] beannames =  context.getBeanDefinitionNames();
+
+        for(String beanname: beannames){
+            System.out.println(beanname);
+        }
     }
 
 }

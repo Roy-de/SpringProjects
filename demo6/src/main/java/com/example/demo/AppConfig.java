@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Scope;
 @ComponentScan(basePackages = {"com.example.demo"})
 public class AppConfig {
     @Bean
-    @Scope("threadScope")
+    @Scope("CustomThreadScope")
     public Volunteer getVolunteer(){
         Volunteer volunteer = new Volunteer();
         volunteer.setName("Roy Murithi");

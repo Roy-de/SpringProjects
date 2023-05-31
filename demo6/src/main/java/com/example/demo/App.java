@@ -8,9 +8,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class App {
     static ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
     public static void main(String[] args){
-        ConfigurableApplicationContext context1 = new AnnotationConfigApplicationContext();
-        Scope scope = new CustomThreadScope();
-        context1.getBeanFactory().registerScope("threadScope", scope);
         Runnable childThread = ()->{
             Volunteer v1 = context.getBean(Volunteer.class);
             Volunteer v2 = context.getBean(Volunteer.class);
