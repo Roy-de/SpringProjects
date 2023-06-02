@@ -18,10 +18,21 @@ import java.util.Date;
 @Component
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
+    //@Value("${example.app.jwtSecret}")
     private String jwtSecret;
-
+    //@Value("${example.app.jwtExpirationMs}")
     private int jwtExpirationMs;
+    //@Value(value = "${example.app.jwtCookieName}")
     private String jwtCookie;
+
+    public JwtUtils() {
+        this(0);
+    }
+
+    public JwtUtils(int jwtExpirationMs) {
+        this.jwtExpirationMs = jwtExpirationMs;
+    }
+
     public String getJwtFromCookies(HttpServletRequest request){
         Cookie cookie = WebUtils.getCookie(request,jwtCookie);
         if (cookie != null){
@@ -70,5 +81,13 @@ public class JwtUtils {
             logger.error("JWT claims string is empty: {}",e.getMessage());
         }
         return false;
+    }
+
+    public void setJwtCookie(String jwtCookie) {
+        this.jwtCookie = jwtCookie;
+    }
+
+    public void setJwtSecret(String jwtSecret) {
+        this.jwtSecret = jwtSecret;
     }
 }

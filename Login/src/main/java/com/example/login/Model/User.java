@@ -1,6 +1,7 @@
 package com.example.login.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users",
 uniqueConstraints = {
-        @UniqueConstraint(columnNames = "user"),
+        @UniqueConstraint(columnNames = "username"),
         @UniqueConstraint(columnNames = "email")
 })
 @Getter
@@ -24,8 +25,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false,length = 20)
-    private String uername;
+    private String username;
     @Column(nullable = false,length = 20)
+    @Email
     private String email;
     @Column(nullable = false,length = 200)
     private String password;
@@ -36,8 +38,8 @@ public class User {
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User(String uername, String email, String password) {
-        this.uername = uername;
+    public User(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }

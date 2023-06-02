@@ -7,12 +7,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serial;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 @Getter
 public class UserDetailsImpl implements UserDetails {
+    @Serial
     private static final long serialVersionUID = 1L;
     private long id;
     private String username;
@@ -37,12 +39,11 @@ public class UserDetailsImpl implements UserDetails {
                 user.getId(),
                 user.getPassword(),
                 user.getEmail(),
-                user.getUername(),authorities
+                user.getUsername(),authorities
         );
     }
 
     /**
-     * @return
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

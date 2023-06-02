@@ -25,7 +25,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
    private UserDetailsServiceimpl userDetailsService;
    private  static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
    @Override
-    protected void doFilterInternal(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response,@NotNull FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull FilterChain filterChain) throws ServletException, IOException {
         try{
             String jwt = parseJwt(request);
             if(jwt != null && jwtUtils.validateJwtToken(jwt)){
