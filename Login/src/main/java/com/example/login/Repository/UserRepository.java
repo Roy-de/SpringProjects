@@ -1,17 +1,11 @@
 package com.example.login.Repository;
 
-import com.example.login.Model.User;
+import com.example.login.Entity.User.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
+//This JPA is used to save the user info
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
-    /*For the models to work, they each need a repository
-    for persisting and accessing the data
-    */
-    Optional<User> findByUsername(String username);
-    Boolean existsByUsername(String username);
-    Boolean existsByEmail(String email);
+public interface UserRepository extends JpaRepository<UserEntity,Long> {
+    boolean findByEmail(String email);
 }
